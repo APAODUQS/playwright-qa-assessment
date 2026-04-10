@@ -1,5 +1,5 @@
-import { test } from '../fixtures';
+import { test } from "../fixtures";
 
-test('Login into the page', async ({ loginActions }) => {
+test("Login into the page", async ({ loginActions }) => {
   await loginActions.loginToApp();
 });

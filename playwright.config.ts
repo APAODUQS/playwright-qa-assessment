@@ -1,11 +1,11 @@
-import { defineConfig, devices } from '@playwright/test';
-import { config as dotenvConfig } from 'dotenv';
+import { defineConfig, devices } from "@playwright/test";
+import { config as dotenvConfig } from "dotenv";
 
 dotenvConfig();
 
 export default defineConfig({
-  globalSetup: './global-setup.ts',
-  testDir: './tests',
+  globalSetup: "./global-setup.ts",
+  testDir: "./tests",
   timeout: 60000,
   expect: {
     /**
@@ -23,43 +23,43 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { open: 'never' }]],
+  reporter: [["html", { open: "never" }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     headless: false,
     viewport: { width: 1920, height: 1080 },
     ignoreHTTPSErrors: true,
-    storageState: 'storageState.json',
+    storageState: "storageState.json",
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL ?? 'https://www.saucedemo.com',
+    baseURL: process.env.BASE_URL ?? "https://www.saucedemo.com",
     // Definition of a data-id parameter
-    testIdAttribute: 'data-test',
+    testIdAttribute: "data-test",
     /* Artifacts based on failures */
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'retain-on-failure',
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+    trace: "retain-on-failure",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
     },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
     },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  outputDir: 'test-results/',
+  outputDir: "test-results/",
 });
