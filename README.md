@@ -1,6 +1,6 @@
 # playwright-qa-assessment
 
-This is an automation framework to test the application [SauceDemo](https://www.saucedemo.com). The application simulates a retail storefront. 
+This is an automation framework to test the application [SauceDemo](https://www.saucedemo.com). The application simulates a retail storefront.
 This framework is being building with Playwright library and Playwright Test Runner.
 
 ### Available Modules
@@ -87,7 +87,25 @@ ACCOUNT=standard_user
 PASSWORD=*********
 ```
 
-4. Other ways to run the tests:
+4. For executing all tests locally, execute:
+
+```bash
+npm run test
+```
+
+5. If you want to run a specific tests, you can use the scripts in the package.json:
+
+- `test`: Execute all tests in all browsers.
+- `test:e2e`: Execute e2e tests in all browsers.
+- `test:ui`: Execute ui tests in all browsers.
+
+In the same way if you want to run those tests in a specific browser you can run the script adding `-- --project YOUR_BROWSER`:
+
+```
+npm run test:e2e -- --project Chrome
+```
+
+6. Other ways to run the tests:
 
 ```bash
 # To run specific test files, specify the route of the tests:
@@ -313,13 +331,14 @@ In this way you can see any error or warning. For fixing those errors and warnin
 | Number        | num    | numProducts     |
 
 ### Use of TAGS
-| Test   | Tag                     | Description                              | Example                        |
-| ------ | ----------------------- | ---------------------------------------- |------------------------------- |
-| API    | `test.describe`: <br> `@NAME_SERVICE-service @FEATURE` | For the API test we should add two tags in the `test.describe` in order to identify the service that implements that API and also the feature that we are covering with this test | `@my-service @my-endpoint`, the first one identifies the service that contain that specific endpoint, and the last one identifies that this endpoint implements a feature.|
-| E2E    | `test.describe`: <br> `@E2E-##` | For the E2E test we should add one tag in the `test.describe` in order to identify the number of the E2E test that we want to execute. | `E2E-01`|
-| UI     | `test.describe`: <br> `@FEATURE`| For the UI test we should add one tag in the `test.describe` in order to identify the page or feature, also we should add one tag in the `test` in order to identify the number of the test that we want to execute for this specific feature `@FEATURE-##` | `@login` in the test.describe that allows as to identify that this test set is related with the login page, `@login-01` in the test identifies an specific test for the login page.|
-| VISUAL | `@VT-##` | For the VISUAL test we should add one tag in the `test` in order to identify the number of the VISUAL test that we want to execute. |`@VT-01`|
-| SMOKE  | `@smoke` | For the SMOKE test we should add the tag `@smoke` | - |
+
+| Test   | Tag                                                    | Description                                                                                                                                                                                                                                                 | Example                                                                                                                                                                             |
+| ------ | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API    | `test.describe`: <br> `@NAME_SERVICE-service @FEATURE` | For the API test we should add two tags in the `test.describe` in order to identify the service that implements that API and also the feature that we are covering with this test                                                                           | `@my-service @my-endpoint`, the first one identifies the service that contain that specific endpoint, and the last one identifies that this endpoint implements a feature.          |
+| E2E    | `test.describe`: <br> `@E2E-##`                        | For the E2E test we should add one tag in the `test.describe` in order to identify the number of the E2E test that we want to execute.                                                                                                                      | `E2E-01`                                                                                                                                                                            |
+| UI     | `test.describe`: <br> `@FEATURE`                       | For the UI test we should add one tag in the `test.describe` in order to identify the page or feature, also we should add one tag in the `test` in order to identify the number of the test that we want to execute for this specific feature `@FEATURE-##` | `@login` in the test.describe that allows as to identify that this test set is related with the login page, `@login-01` in the test identifies an specific test for the login page. |
+| VISUAL | `@VT-##`                                               | For the VISUAL test we should add one tag in the `test` in order to identify the number of the VISUAL test that we want to execute.                                                                                                                         | `@VT-01`                                                                                                                                                                            |
+| SMOKE  | `@smoke`                                               | For the SMOKE test we should add the tag `@smoke`                                                                                                                                                                                                           | -                                                                                                                                                                                   |
 
 ## API Testing
 

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --config=playwright.config.ts --project chromium",
+    "test": "npx playwright test --config=playwright.config.ts",
+    "test:ui": "npx playwright test tests/ui/ --config=playwright.config.ts",
+    "test:e2e": "npx playwright test tests/e2e --config=playwright.config.ts",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },
