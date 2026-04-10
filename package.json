@@ -1,0 +1,27 @@
+{
+  "name": "playwright-qa-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --config=playwright.config.ts --project chromium"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/APAODUQS/playwright-qa-assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/APAODUQS/playwright-qa-assessment/issues"
+  },
+  "homepage": "https://github.com/APAODUQS/playwright-qa-assessment#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.1"
+  }
+}
