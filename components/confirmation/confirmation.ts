@@ -4,6 +4,7 @@ export class ConfirmationComponent {
   readonly confirmation: Page;
   readonly confirmationContainer: Locator;
   readonly productContainer: Locator;
+  readonly lblProductName: Locator;
   readonly btnFinish: Locator;
   readonly btnCancel: Locator;
 
@@ -13,6 +14,7 @@ export class ConfirmationComponent {
       "checkout-summary-container",
     );
     this.productContainer = confirmation.getByTestId("inventory-item");
+    this.lblProductName = confirmation.getByTestId("inventory_item_name");
     this.btnFinish = confirmation.getByTestId("finish");
     this.btnCancel = confirmation.getByTestId("cancel");
   }

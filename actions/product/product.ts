@@ -8,4 +8,19 @@ export class ProductActions extends ProductComponent {
       "Product container should be visible",
     ).toBeVisible();
   }
+
+  async addToCart(): Promise<void> {
+    await this.checkProduct();
+    await this.btnAddToCart.click();
+  }
+
+  async removeFromCart(): Promise<void> {
+    await this.checkProduct();
+    await this.btnRemove.click();
+  }
+
+  async backToProducts(): Promise<void> {
+    await this.checkProduct();
+    await this.lnkBack.click();
+  }
 }

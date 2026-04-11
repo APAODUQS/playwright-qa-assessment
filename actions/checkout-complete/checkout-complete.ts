@@ -8,4 +8,17 @@ export class CheckoutCompleteActions extends CheckoutCompleteComponent {
       "Checkout-Complete container should be visible",
     ).toBeVisible();
   }
+
+  async checkCheckoutCompleteTitle(): Promise<void> {
+    await this.checkCheckoutComplete();
+    await expect(
+      this.checkoutCompleteTitle,
+      "Checkout-Complete title should be visible",
+    ).toBeVisible();
+  }
+
+  async clickBtnBackHome(): Promise<void> {
+    await this.checkCheckoutComplete();
+    await this.btnBackHome.click();
+  }
 }
