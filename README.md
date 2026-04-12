@@ -187,6 +187,14 @@ With this trace you can see:
 - Screenshots: When tracing with the screenshots option turned on, each trace records screencast and renders it as a film strip and you can hover over it to see a magnified image
 - Snapshots​ When tracing with the snapshots option turned on, Playwright captures a set of complete DOM snapshots for each action.
 
+## Project Architecture Overview
+
+- components: This directory houses all locators and web elements. To maintain organization, elements are grouped into sub-directories named after specific application features or functionalities. When adding a new component, create a new class within the appropriate directory and export it via the index.ts file.
+- actions: Define the user interactions and workflows here, utilizing the locators defined in the components directory. Like the components, actions are categorized into sub-directories by functionality. Create a new class for new actions and ensure it is registered in the index.ts file.
+- fixtures: This layer manages the instantiation of components and actions, allowing them to be injected directly into your tests. For every new component or action class created, you must add the corresponding instance to the respective fixture files.
+- tests: This is the central repository for all executable test scripts. Tests are organized by type, such as End-to-End (E2E), UI, or Visual tests.
+- utils: Use this directory for shared utility functions and helper methods that support test execution, such as generating random data, performing mathematical calculations, handling file management, and others.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
