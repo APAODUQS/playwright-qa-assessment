@@ -9,8 +9,12 @@ export class LoginActions extends LoginComponent {
     ).toBeVisible();
   }
 
-  async loginToApp(): Promise<void> {
+  async gotoLoginPage(): Promise<void> {
     await this.login.goto(process.env.BASE_URL ?? "");
+  }
+
+  async loginToApp(): Promise<void> {
+    await this.gotoLoginPage();
     await this.checkLoginPage();
     await this.txtUsername.fill(process.env.ACCOUNT ?? "");
     await this.txtPassword.fill(process.env.PASSWORD ?? "");

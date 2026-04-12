@@ -39,10 +39,10 @@ export class CartActions extends CartComponent {
   async selectRandomProduct(): Promise<string> {
     const totalProducts = await this.productContainer.count();
     const item = RandomDataGenerator.generateRandomValue(0, totalProducts - 1);
-    return await this.getProductByName(item);
+    return await this.getProductByItem(item);
   }
 
-  async getProductByName(item: number): Promise<string> {
+  async getProductByItem(item: number): Promise<string> {
     return (await this.lblProductName.nth(item).textContent()) ?? "";
   }
 

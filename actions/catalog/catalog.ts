@@ -1,4 +1,4 @@
-import { expect } from "@playwright/test";
+import { expect, Locator } from "@playwright/test";
 import { CatalogComponent } from "../../components/catalog/catalog";
 import { RandomDataGenerator } from "../../utils/random-values";
 
@@ -19,7 +19,7 @@ export class CatalogActions extends CatalogComponent {
     } else {
       item = await this.getProductItemByName(productName);
     }
-    const product = this.inventoryItemContainer.nth(item);
+    const product = this.lblProductName.nth(item);
     await product.click();
   }
 
@@ -52,11 +52,19 @@ export class CatalogActions extends CatalogComponent {
   async selectRandomProduct(): Promise<string> {
     const totalProducts = await this.inventoryItemContainer.count();
     const item = RandomDataGenerator.generateRandomValue(0, totalProducts - 1);
-    return await this.getProductByName(item);
+    return await this.getProductByItem(item);
   }
 
-  async getProductByName(item: number): Promise<string> {
+  async getProductByItem(item: number): Promise<string> {
     return (await this.lblProductName.nth(item).textContent()) ?? "";
+  }
+
+  async getImageLocatorByName(productName: string): Promise<Locator> {
+    const image = this.IMG_PRODUCT.replace(
+      "PRODUCT_NAME",
+      productName.replace(/\s/g, "-").toLowerCase(),
+    );
+    return this.catalog.locator(image);
   }
 
   async getProductItemByName(productName: string): Promise<number> {

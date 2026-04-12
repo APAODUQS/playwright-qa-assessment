@@ -7,6 +7,8 @@
     "test": "npx playwright test --config=playwright.config.ts",
     "test:ui": "npx playwright test tests/ui/ --config=playwright.config.ts",
     "test:e2e": "npx playwright test tests/e2e --config=playwright.config.ts",
+    "test:visual": "npx playwright test tests/visual/ --config=playwright.config.ts --project chromium",
+    "test:visual:update": "npx playwright test tests/visual/ --update-snapshots --project chromium",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write ."
   },
