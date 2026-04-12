@@ -5,26 +5,25 @@ This framework is being building with Playwright library and Playwright Test Run
 
 ### Available Modules
 
-- Login / Auth: Username + password form, session cookie, error message on bad credentials
-- Product Catalogue: Product grid, sort by name/price, product detail page
-- Cart: Add / remove items, item count badge on header icon
-- Checkout: 3-step flow: cart → customer info (first name, last name, zip) → order summary → confirmation
-- Logout: Accessible via the burger menu
+- *Login / Auth*: Username + password form, session cookie, error message on bad credentials
+- *Product Catalogue*: Product grid, sort by name/price, product detail page
+- *Cart*: Add / remove items, item count badge on header icon
+- *Checkout*: 3-step flow: cart → customer info (first name, last name, zip) → order summary → confirmation
+- *Logout*: Accessible via the burger menu
 
 ### Test User Accounts
 
 Password for all accounts: secret_sauce
 
-- standard_user: Fully functional. All happy-path and core tests
-- locked_out_user: Login is blocked by the app. Negative auth / error state tests
-- problem_user: Broken product images, some interactions fail. Visual / data assertion edge cases
-- performance_glitch_user: Login and page loads are artificially delayed. Timeout / wait handling tests
-- error_user: Intermittent form errors on checkout. Senior/Lead error-handling scenarios
+- *standard_user*: Fully functional. All happy-path and core tests
+- *locked_out_user*: Login is blocked by the app. Negative auth / error state tests
+- *problem_user*: Broken product images, some interactions fail. Visual / data assertion edge cases
+- *performance_glitch_user:* Login and page loads are artificially delayed. Timeout / wait handling tests
+- *error_user*: Intermittent form errors on checkout. Senior/Lead error-handling scenarios
 
 ## Documentation
 
-If you want to know more about Playwright and Playwright/Test please visit:
-[Playwright Docs](https://playwright.dev/docs/intro)
+If you want to know more about Playwright and Playwright/Test please visit: [Playwright Docs](https://playwright.dev/docs/intro)
 
 ## Installation
 
@@ -102,7 +101,7 @@ npm run test
 In the same way if you want to run those tests in a specific browser you can run the script adding `-- --project YOUR_BROWSER`:
 
 ```
-npm run test:e2e -- --project Chrome
+npm run test:e2e -- --project chromium
 ```
 
 6. Other ways to run the tests:
@@ -189,11 +188,11 @@ With this trace you can see:
 
 ## Project Architecture Overview
 
-- components: This directory houses all locators and web elements. To maintain organization, elements are grouped into sub-directories named after specific application features or functionalities. When adding a new component, create a new class within the appropriate directory and export it via the index.ts file.
-- actions: Define the user interactions and workflows here, utilizing the locators defined in the components directory. Like the components, actions are categorized into sub-directories by functionality. Create a new class for new actions and ensure it is registered in the index.ts file.
-- fixtures: This layer manages the instantiation of components and actions, allowing them to be injected directly into your tests. For every new component or action class created, you must add the corresponding instance to the respective fixture files.
-- tests: This is the central repository for all executable test scripts. Tests are organized by type, such as End-to-End (E2E), UI, or Visual tests.
-- utils: Use this directory for shared utility functions and helper methods that support test execution, such as generating random data, performing mathematical calculations, handling file management, and others.
+- **components**: This directory houses all locators and web elements. To maintain organization, elements are grouped into sub-directories named after specific application features or functionalities. When adding a new component, create a new class within the appropriate directory and export it via the index.ts file.
+- **actions**: Define the user interactions and workflows here, utilizing the locators defined in the components directory. Like the components, actions are categorized into sub-directories by functionality. Create a new class for new actions and ensure it is registered in the index.ts file.
+- **fixtures**: This layer manages the instantiation of components and actions, allowing them to be injected directly into your tests. For every new component or action class created, you must add the corresponding instance to the respective fixture files.
+- **tests**: This is the central repository for all executable test scripts. Tests are organized by type, such as End-to-End (E2E), UI, or Visual tests.
+- **utils**: Use this directory for shared utility functions and helper methods that support test execution, such as generating random data, performing mathematical calculations, handling file management, and others.
 
 ## Contributing
 
