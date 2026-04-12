@@ -11,14 +11,13 @@ jobs:
     steps:
       - name: Set Environment Variables
         env:
-          BASE_URL: "${{ vars.BASE_URL }}"
-          ACCOUNT: "${{ secrets.ACCOUNT }}"
-          PASSWORD: "${{ secrets.PASSWORD }}"
+          BASE_URL: ${{ vars.BASE_URL }}
+          ACCOUNT: ${{ secrets.ACCOUNT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "CI=true" >> $GITHUB_ENV
-          echo ${BASE_URL}
-          echo ${ACCOUNT}
-          echo  ${PASSWORD}
+          echo $BASE_URL
+          echo $ACCOUNT
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
