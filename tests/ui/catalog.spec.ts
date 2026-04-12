@@ -2,7 +2,6 @@ import { beforeEach } from "node:test";
 import { expect, test } from "../../fixtures";
 
 test.describe("Catalog page unit UI test @catalog", () => {
-
   test("Order catalog by price (low to high) @catalog-01", async ({
     catalogActions,
   }) => {
