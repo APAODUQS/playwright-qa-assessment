@@ -9,6 +9,13 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+      - name: Set Environment Variables
+        env:
+          BASE_URL: "${{ vars.BASE_URL }}"
+          ACCOUNT: "${{ secrets.ACCOUNT }}"
+          PASSWORD: "${{ secrets.PASSWORD }}"
+        run: |
+          echo "CI=true" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
