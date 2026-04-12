@@ -11,13 +11,21 @@ export class LoginActions extends LoginComponent {
 
   async gotoLoginPage(): Promise<void> {
     await this.login.goto(process.env.BASE_URL ?? "");
+    await this.checkLoginPage();
   }
 
   async loginToApp(): Promise<void> {
     await this.gotoLoginPage();
-    await this.checkLoginPage();
-    await this.txtUsername.fill(process.env.ACCOUNT ?? "");
-    await this.txtPassword.fill(process.env.PASSWORD ?? "");
+    await this.typeLoginParametersAndLogin();
+  }
+
+  async typeLoginParametersAndLogin(username?: string, password?: string): Promise<void> {
+    await this.txtUsername.fill(username ?? process.env.ACCOUNT ?? "");
+    await this.txtPassword.fill(password ?? process.env.PASSWORD ?? "");
     await this.btnSignIn.click();
+  }
+
+  async getErrorMessage(): Promise<string> {
+    return await this.messageError.textContent() ?? "";
   }
 }

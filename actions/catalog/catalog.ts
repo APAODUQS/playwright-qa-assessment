@@ -10,6 +10,11 @@ export class CatalogActions extends CatalogComponent {
     ).toBeVisible();
   }
 
+    async gotoCatalogPage(): Promise<void> {
+    await this.catalog.goto(`${process.env.BASE_URL}/inventory.html`);
+    await this.checkCatalog();
+  }
+
   async clickOnProduct(productName?: string): Promise<void> {
     await this.checkCatalog();
     let item = 0;
@@ -76,5 +81,10 @@ export class CatalogActions extends CatalogComponent {
       i++;
     }
     return i;
+  }
+
+  async sortProductsBy(option: string): Promise<void> {
+    await this.filter.click();
+    await this.filter.selectOption({ label: option});
   }
 }

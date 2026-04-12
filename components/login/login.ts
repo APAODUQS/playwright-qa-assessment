@@ -6,6 +6,7 @@ export class LoginComponent {
   readonly txtPassword: Locator;
   readonly btnSignIn: Locator;
   readonly loginContainer: Locator;
+  readonly messageError: Locator;
 
   constructor(login: Page) {
     this.login = login;
@@ -13,5 +14,6 @@ export class LoginComponent {
     this.txtPassword = login.getByTestId("password");
     this.btnSignIn = login.getByTestId("login-button");
     this.loginContainer = login.getByTestId("login-container");
+    this.messageError = login.getByTestId("error");
   }
 }
