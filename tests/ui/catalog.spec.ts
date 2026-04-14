@@ -14,4 +14,30 @@ test.describe("Catalog page unit UI test @catalog", () => {
       expect(price2).toBeGreaterThanOrEqual(price1);
     }
   });
+
+  test("Order catalog by price (high to low) and select first t-shirt @catalog-02", async ({
+    catalogActions,
+  }) => {
+    await catalogActions.gotoCatalogPage();
+    await catalogActions.sortProductsBy("Price (high to low)");
+    const allPrices = await catalogActions.lblProductPrice.allTextContents();
+    for (let i = 0; i < allPrices.length - 1; i++) {
+      const price1 = parseFloat(allPrices[i].replace("$", ""));
+      const price2 = parseFloat(allPrices[i + 1].replace("$", ""));
+      expect(price1).toBeGreaterThanOrEqual(price2);
+    }
+    const allProductNames =
+      await catalogActions.lblProductName.allTextContents();
+    const firstTShirt = allProductNames.find((productName) =>
+      /t-?shirt/i.test(productName),
+    );
+    expect(
+      firstTShirt,
+      "A t-shirt product should exist in catalog",
+    ).toBeTruthy();
+    await catalogActions.clickOnProduct(firstTShirt);
+    await expect(catalogActions.lblProductName.first()).toHaveText(
+      firstTShirt!,
+    );
+  });
 });

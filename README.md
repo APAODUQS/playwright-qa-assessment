@@ -5,21 +5,21 @@ This framework is being building with Playwright library and Playwright Test Run
 
 ### Available Modules
 
-- *Login / Auth*: Username + password form, session cookie, error message on bad credentials
-- *Product Catalogue*: Product grid, sort by name/price, product detail page
-- *Cart*: Add / remove items, item count badge on header icon
-- *Checkout*: 3-step flow: cart → customer info (first name, last name, zip) → order summary → confirmation
-- *Logout*: Accessible via the burger menu
+- _Login / Auth_: Username + password form, session cookie, error message on bad credentials
+- _Product Catalogue_: Product grid, sort by name/price, product detail page
+- _Cart_: Add / remove items, item count badge on header icon
+- _Checkout_: 3-step flow: cart → customer info (first name, last name, zip) → order summary → confirmation
+- _Logout_: Accessible via the burger menu
 
 ### Test User Accounts
 
 Password for all accounts: secret_sauce
 
-- *standard_user*: Fully functional. All happy-path and core tests
-- *locked_out_user*: Login is blocked by the app. Negative auth / error state tests
-- *problem_user*: Broken product images, some interactions fail. Visual / data assertion edge cases
-- *performance_glitch_user:* Login and page loads are artificially delayed. Timeout / wait handling tests
-- *error_user*: Intermittent form errors on checkout. Senior/Lead error-handling scenarios
+- _standard_user_: Fully functional. All happy-path and core tests
+- _locked_out_user_: Login is blocked by the app. Negative auth / error state tests
+- _problem_user_: Broken product images, some interactions fail. Visual / data assertion edge cases
+- _performance_glitch_user:_ Login and page loads are artificially delayed. Timeout / wait handling tests
+- _error_user_: Intermittent form errors on checkout. Senior/Lead error-handling scenarios
 
 ## Documentation
 
